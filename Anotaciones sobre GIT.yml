@@ -1,0 +1,64 @@
+Anotaciones sobre GIT
+======================
+
+Registrar cuenta en git en mi PC via SSH
+
+Generar RSA KEY aplicar el comando
+    ~$ssh-keygen -t rsa -C "<correo_electronico>"
+    
+    - Luego de ejecutar el comando te pedirá que ingreses un nombre para el archivo creado o sino se creará o sobreescribirá
+      en el archivo que te indicará el gestor de creación de llave.
+    - Luego si deseas puedes espcificar una contraseña.
+    - Una vez generada la llave vamos a visualizarla para poder copiarla en nuestra cuenta de repositorio remoto
+      (github, gitlab, bitbucket, etc) y aplicamos los siguientes comandos:
+      ~$cd ./.ssh/
+      (abrimos la carpeta .ssh para visualizar todo su contenido con ayuda de visual studio aplicando sobre 
+      la ruta donde nos encontramos hasta el momento)
+      ~/.ssh$ code .
+    - Luego buscamos copiar el contenido del archivo id_rsa.pub dentro de nuestro repositorio remoto.
+    - Vamos a nuetro repositorio remoto(en nuestro caso github), vamos a las opciones de 
+      Settings >> SSH and GPG keys >> New SSH key 
+
+      - Aqui introducimos un nombre de nuestra elección 
+      - Copiamos el contenido obtenido en el paso anterior 
+      - seleccionamos "Add SSH key"
+    
+    - Luego toca añadirlo a nuestro Agente SSH, para ejecutamos el comando:
+     ~/.ssh$ ssh-add ./id_rsa
+
+    - Si se va a tener varias cuentas, se tienen que repetir los mismos pasos solo que para las siguientes ocasiones
+      se tiene que especificar un nombre de "id_rsa_otro_usuario" y al momento que inicia el gestor de creación de llave 
+      rsa especificar el nuevo nombre de id_rsa, especificarlo con todo y ruta absoluta, es decir desde la raiz. Esto
+      aplica también al momento de añadir el archivo "id_rsa_otro_usuario" al agente SSH.
+    
+    - luego de haber añadido las cuentas de git necesarias, se requiere crear un archivo llamado "config" dentro de la 
+      carpeta ".ssh" el cual contendrá el siguiente contenido:
+
+        #Default account (main account)
+        Host github.com #Este es un alias
+            HostName github.com
+            User git
+            IdentityFile ~/.ssh/id_rsa
+        
+        #Other Account
+        HOST github-other #este es un alias
+            HostName github.com
+            User git
+            IdentityFile ~/.ssh/id_rsa_other
+    
+    - Luego en nuestras fuentes al intentar definir el repositorio remoto via ssh, teniendo en cuenta que la dirección
+      tiene la siguiente estructura:
+          git@github.com:VictorAntonioRuizChambi/proyectoNodeJS01.git
+      
+      el comando se aplicará de la siguiente manera:
+
+         $git remote add origin git@<alias_de_HOST_definido_en_el_config>:VictorAntonioRuizChambi/proyectoNodeJS01.git
+      
+      para que de esta manera le indiquemos a nuestro repositorio remoto, con que cuenta definida en nuestro archivo 
+      "config" de la carpeta ".ssh" queremos trabajar dicho repositorio.
+
+    - si se quiere definir un correo y un usuario para un repositorio en particular para hacer los commits, se debe
+      evitar indicar el comando --global, para que solo lo considere para el repositorio actual.
+
+        git config user.email "varuizchambi@gmail.com"  
+        git config user.name "Victor Antonio Ruiz Chambi"
