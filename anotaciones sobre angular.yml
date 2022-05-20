@@ -1,0 +1,87 @@
+Anotaciones de Angular
+=======================
+
+comando para instalar angular de forma global
+    $npm install @angular/cli -g
+
+comando para instalar una version específica de angular de forma global
+    $npm install @angular/cli@<numero_version> -g
+
+comando para validar la version de angular instalada en tu máquina
+    $ng --version
+
+comando para crear un nuevo proyecto
+    $ng new <nombre_proyecto>
+
+en caso se quiera levantar el proyecto en otro lado o se ha eliminado al carpeta node_modules lo único que se 
+tiene que hacer si se quiere reqconstruir es aplicar el comando npm install 
+    $npm install
+
+comando para levantar el proyecto
+    $ng serve
+
+comando para que el navegador se abra automaticamente después de una compilación
+    $ng serve -o  |   $ng s -o
+
+comando para especificar que levante utilizando un puerto específico
+    $ng s --port=<número_de_puerto>
+
+comando para crear un componente en angular, nos debemos ubicar dentro de la carpeta del proyecto
+    $ng generate component <nombre_componente>  |  $ng g c <nombre_componente>
+
+comando para crear un componente pero obviando el archivo de pruebas en su creación
+    $ng generate component <nombre_componente> --skip-tests
+
+comando para instalar angular material en tu proyecto(debes estar ubidao dentro de tu proyecto)
+    $ng add @angular/material
+
+comando para crear un nuevo módulo en donde se puedan especificar las importaciones solo de aspecto visual para tener más ordenado el proyecto 
+    $ng g module <nombre_nuevo_modulo>| $ng g m <nombre_nuevo_modulo>
+
+comando para generar un archivo de lógica de conexión a un servicio externo(no se debe especificar extensión al nombre de archivo definido porque angular ya genera el archivo con la extensión que le corresponde)
+    $ng generate service <ruta_directorio>/<nombre_archivo_sin_extension> --skip-tests
+
+la forma actual de concatenar una cadena de texto a partir de ES6 es ahora con el sínbolo backquote, es decir este símbolo ``
+un ejemplo con variable dinámica sería: `${nombre_variable}textoAAgregar`
+
+comando para instalar la librería moment.js para poder trabajar con fechas en tu proyecto
+    $npm install moment --save
+
+comando para instalar angular flex-layout, para acomodar componentes visuales de manera equidistante
+    $npm i @angular/flex-layout --save 
+
+comando para instalar librería de gráficos estadísticos
+    $npm i chart.js@latest --save | $npm i chart.js@<version_específica_Deseada> --save
+
+librería para poder visualizar pdf's desde angular
+     ng2-pdf-viewer
+
+comando para instalar  librería para visualización de pdf
+    $npm i ng2-pdf-viewer --save
+
+comando para crear componente especial para dividir la funcionalidad del proyecto
+    $ng g c <pages>/layout --skip-tests
+
+comando para instalar la librería que va a inyectar en las cabeceras de mis peticiones a backend, el token o jwt
+    $npm i @auth0/angular-jwt --save
+
+para buscar plantillas premium podemos entrar a la página
+    themeforest.net
+
+guía de angular en caso se desee actualizar de una versión a otra  
+    update.angular.io
+
+comando para compilar el proyecto de angular y tome los enviroments de producción
+    $ng build
+
+se va a generar una carpeta dist, es la carpeta donde vamos a encontrar nuestro compilado.
+
+para el momento del despliegue en el tomcat instalado en el  digital ocean, en el archivo "index.html" hay que considerar agregar en el tag <base href="/"> un "." antes del caracter "/"
+esto es porque los archivos compilados se generan al mismo nivel que el archivo "index.html", por lo que para que lo pueda reconocer, se debería dar el siguiente cambio:
+    <base href="/">       ---------->             <base href="./">
+
+
+() eventos 
+[] propiedades 
+[()] ngModel 
+{{}} interpolacion, imprimir valores en html 
