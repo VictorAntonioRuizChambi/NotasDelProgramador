@@ -2,10 +2,31 @@ Anotaciones sobre NodeJs
 ========================
 
 comando para ejecutar un programa de node
-    $node <nombre de programa con extensión>
+    $node <nombre de archivo con extensión>
 
 comando para enviar parámetros al ejecutar un programa de node, los 3 puntos significan que se puede enviar más de un parámetro para ejecutar el programa de node 
-    $NOMBRE_PARAMETRO='valor del parámetro' ... node <nombre de programa con extensión>
+    $NOMBRE_PARAMETRO='valor del parámetro' ... node <nombre de archivo con extensión>
 
 comando para instalar nodemon, herramienta para poder ejecutar un demonio por debajo que permita validar si han habido cambios sobres un proyecto node en específico,
 y volver a compilar y desplegar en caso detecte algún cambio guardado en el archivo o proyecto de trabajo.
+
+    $npm install -g nodemon
+
+comando para indicarle a nodemon que observe constantemente a un proyecto en específico
+    $nodemon <nombre de archivo con extensión>
+
+Existe una herramienta parecida a nodemon solo que mucho más potente y con muchas más funcionalidades, llamada PM2, es una herramienta especializada para ambientes productivos,
+no es recomendable para ambientes de desarrollo porque solo nos generaría más problemas que ayudas. Para instalarlo se debe aplicar el siguiente comando:
+    $npm install -g pm2
+
+para realizar seguimiento a un proyecto con PM2, se debe aplicar el siguiente comando:
+    $pm2 start <nombre de archivo con extensión>
+
+para saber todas las aplicaciones que se están corriendo con pm2, se aplica el siguiente comando:
+    $pm2 status
+
+para ver los log de las aplicaciones que están corriendo con pm2, se aplica el siguiente comando:
+    $pm2 logs
+
+para detener seguimiento a un proyecto con PM2, se debe aplicar el siguiente comando:
+    $pm2 start <nombre de archivo con extensión> | ID | <ruta de archivo >
