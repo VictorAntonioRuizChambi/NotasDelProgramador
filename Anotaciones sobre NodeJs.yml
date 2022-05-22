@@ -1,0 +1,8 @@
+Anotaciones sobre NodeJs
+========================
+
+comando para ejecutar un programa de node
+    $node <nombre de programa con extensión>
+
+comando para enviar parámetros al ejecutar un programa de node, los 3 puntos significan que se puede enviar más de un parámetro para ejecutar el programa de node 
+    $NOMBRE_PARAMETRO='valor del parámetro' ... node <nombre de programa con extensión>
