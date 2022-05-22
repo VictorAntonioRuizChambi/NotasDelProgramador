@@ -6,3 +6,6 @@ comando para ejecutar un programa de node
 
 comando para enviar parámetros al ejecutar un programa de node, los 3 puntos significan que se puede enviar más de un parámetro para ejecutar el programa de node 
     $NOMBRE_PARAMETRO='valor del parámetro' ... node <nombre de programa con extensión>
+
+comando para instalar nodemon, herramienta para poder ejecutar un demonio por debajo que permita validar si han habido cambios sobres un proyecto node en específico,
+y volver a compilar y desplegar en caso detecte algún cambio guardado en el archivo o proyecto de trabajo.
