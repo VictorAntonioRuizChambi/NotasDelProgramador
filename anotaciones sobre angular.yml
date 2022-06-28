@@ -16,7 +16,7 @@ comando para crear un nuevo proyecto
 en caso se quiera levantar el proyecto en otro lado o se ha eliminado al carpeta node_modules lo único que se 
 tiene que hacer si se quiere reqconstruir es aplicar el comando npm install 
     $npm install
-
+n nombre para el archivo creado o sino se creará o sobreescribirá
 comando para levantar el proyecto
     $ng serve
 
@@ -41,6 +41,8 @@ comando para crear un nuevo módulo en donde se puedan especificar las importaci
 comando para generar un archivo de lógica de conexión a un servicio externo(no se debe especificar extensión al nombre de archivo definido porque angular ya genera el archivo con la extensión que le corresponde)
     $ng generate service <ruta_directorio>/<nombre_archivo_sin_extension> --skip-tests
 
+comando para generar una directiva
+    $ng generate directive <ruta_directorio>/<nombre_archivo_sin_extension> --skip-tests
 la forma actual de concatenar una cadena de texto a partir de ES6 es ahora con el sínbolo backquote, es decir este símbolo ``
 un ejemplo con variable dinámica sería: `${nombre_variable}textoAAgregar`
 

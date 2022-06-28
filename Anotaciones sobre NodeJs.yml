@@ -31,3 +31,14 @@ para ver los log de las aplicaciones que están corriendo con pm2, se aplica el 
 para detener seguimiento a un proyecto con PM2, se debe aplicar el siguiente comando:
     $pm2 start <nombre de archivo con extensión> | ID | <ruta de archivo >
 
+para instalar herramienta para compilar módulos nativos en node, necesitamos trabajar con la herramienta node-gyp
+    $npm i -g node-gyp
+
+para para configurar el módulo desarrollado en nativo(se ejecuta en el mismo nivel del archivo .gyp creado)
+    $node-gyp configure
+
+para construir el módulo desarrollado en nativo(se ejecuta en el mismo nivel del archivo .gyp creado)
+    $node-gyp build
+
+para inicializar un módulo se aplica el comando 
+    $npm init

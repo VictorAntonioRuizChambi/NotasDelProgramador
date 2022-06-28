@@ -1,0 +1,7 @@
+Anotaciones sobre multihilos
+============================
+
+diferencia entre múltiples procesos y múltiples hilos 
+
+Cada proceso tiene su propio set de variables a dferencia de los hilos, los hilos comparten una misma data.
+

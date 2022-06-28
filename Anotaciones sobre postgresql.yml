@@ -1,0 +1,45 @@
+Comandos para trabajar con postgresql
+=====================================
+
+* Iniciar desde la terminal de Ubuntu con el siguiente comando 
+    $ sudo –i –u postgres
+* Ingresar a la consola de postgreSQL
+    $ psql
+* Salir de la consola de postgreSQL 
+    $ \q
+* Salir del servidor de postgreSQL
+    $ exit
+
+* Comando para crear base de datos
+    $ CREATE DATABASE databasename;
+
+* Comando para eliminar una base de datos(este comando se debe ejecutar antes de ejecutarl el comando psql, porque después de ello no lo va a reconocer, es fuera del entorno de la ejecución del psql)
+    $ dropdb databasename;
+
+
+* Comando para crear usuario
+    $ CREATE USER username WITH PASSWORD 'password';
+
+* Comando para otorgar los privilegios al usuario creado y asociarlo a una base de datos
+    $ GRANT ALL PRIVILEGES ON DATABASE databasename TO username;
+
+
+* Comando para acceder a una base de datos específica
+    $\c databasename
+
+* Comando para generar un backup(este comando se debe ejecutar antes de ejecutarl el comando psql, porque después de ello no lo va a reconocer, es fuera del entorno de la ejecución del psql)
+    $pg_dump -U usuario -W -h host basename > basename.sql
+
+    Vamos a explicar el comando al completo:
+            -U => Se refiere al Usuario, en este caso puede ser el usuario propietario de la base de datos o el usuario postgres
+            -W => Con este parámetro conseguiremos que nos solicite el password del usuario antes especificado
+            -h => Con este indicamos cuál es el servidor PostgreSQL al que nos conectaremos para obtener nuestro dump, si estamos local podemos colocar localhost sino ponemos la IP del servidor PostgreSQL
+            basename => Este es el ultimo parámetro realmente en esta linea de comando, por esa razon no tiene alguna letra que indique que el siguiente parámetro es el nombre de la base de datos
+            > basename.sql => Esta parte en realidad solo indica que la salida de nuestro comando pg_dump la guarde en un archivo basename.sql
+
+* Comando para restarurar a partir de un backup(este comando se debe ejecutar antes de ejecutarl el comando psql, porque después de ello no lo va a reconocer, es fuera del entorno de la ejecución del psql)
+    $psql -U username -W -h host basename < basename.sql
+
+
+* Comando para listar las tablas de una base de datos(esto se debe ejecutar después de haber utilizado el comando \c para especificar una base de datos específica)
+    $\dt
